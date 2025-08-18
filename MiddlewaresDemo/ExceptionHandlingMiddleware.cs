@@ -28,7 +28,7 @@ namespace MiddlewaresDemo
             {
                 _emplogger.LogError(ex, "Employee exception");
                 context.Response.ContentType = "application/json";
-                context.Response.StatusCode = (int)HttpStatusCode.NoContent;
+                context.Response.StatusCode = (int)HttpStatusCode.NotFound;
 
                 var errorresponse1 = new
                 {

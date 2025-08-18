@@ -43,6 +43,7 @@ namespace MiddlewaresDemo.Controllers
         }
 
         [HttpGet("GetEmployeeByEmpid")]
+     //   [ProducesResponseType(StatusCodes.Status204NoContent)]
         public EmployeeModel GetEmployeesByEmpID(int empid)
         {
             EmployeeModel EmpObj=null;
