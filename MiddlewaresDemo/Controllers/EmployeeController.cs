@@ -41,5 +41,29 @@ namespace MiddlewaresDemo.Controllers
             return deptEmps;
 
         }
+
+        [HttpGet("GetEmployeeByEmpid")]
+        public EmployeeModel GetEmployeesByEmpID(int empid)
+        {
+            EmployeeModel EmpObj=null;
+            if (empid != 0)
+            {
+                 EmpObj = emplist.Where(p => p.Empid == empid).SingleOrDefault();
+                if (EmpObj==null)
+                {
+                    throw new EmployeeNotFoundExceptionException("This empid is not found in the records.....");
+                }
+            }
+            else
+            {
+                throw new Exception("Empid doesn't exists");
+            }
+                return EmpObj;
+
+        }
+
+
+
+
     }
 }
