@@ -11,18 +11,24 @@ namespace MiddlewaresDemo.Controllers
 
         [HttpGet("throw")]
         public IActionResult ThrowException() {
-            throw new Exception("This is a test  exception");
+
+            var requestID = HttpContext.Items["RequestId"].ToString();
+
+            //throw new Exception("This is a test  exception");
+            return Ok(new { Message="This request id= " + requestID + " working for you"});
         
         }
         [HttpGet("throw1")]
         public IActionResult Get(int id) {
+           
             if (id == 0)
             {
                 throw new InvalidDataException("ID cannot be zero");
             }
             else 
-            { 
-                return Ok(); 
+            {
+                var requestID = HttpContext.Items["RequestId"].ToString();
+                return Ok(new { Message = "This request id= " + requestID + " working for you" }); ; 
             }
         
         

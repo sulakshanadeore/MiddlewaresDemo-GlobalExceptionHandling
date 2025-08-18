@@ -51,7 +51,7 @@ namespace MiddlewaresDemo
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
+            app.UseMiddleware<Request_ID_Generator>();
             //app.UseGlobalExceptionHandling();//Register using class  OR
             app.UseMiddleware<ExceptionHandlingMiddleware>();
 
