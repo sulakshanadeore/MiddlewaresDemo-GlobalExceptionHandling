@@ -17,5 +17,29 @@ namespace MiddlewaresDemo.Controllers
         new EmployeeModel{ Empid=5,EmpName="Amruta",Deptno=10}
         
         };
+
+
+        [HttpGet("AllEmployees")]
+        public List<EmployeeModel> GetEmpList()
+        { 
+            return emplist;
+               
+        }
+
+        [HttpGet("Deptno10Employees")]
+        public List<EmployeeModel> GetEmpList10()
+        {
+            List<EmployeeModel> dept10Emps=emplist.Where(p => p.Deptno == 10).ToList();
+            return dept10Emps;
+        
+        }
+
+        [HttpGet("GetEmployeesByDeptno")]
+        public List<EmployeeModel> GetEmployees(int deptno)
+        {
+            List<EmployeeModel> deptEmps = emplist.Where(p => p.Deptno == deptno).ToList();
+            return deptEmps;
+
+        }
     }
 }
