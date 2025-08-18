@@ -9,8 +9,8 @@ namespace MiddlewaresDemo.Controllers
     {
 
 
-        [HttpGet("throw")]
-        public IActionResult ThrowException() {
+        [HttpGet("GETDATA")]
+        public IActionResult Get() {
 
             var requestID = HttpContext.Items["RequestId"].ToString();
 
@@ -18,7 +18,7 @@ namespace MiddlewaresDemo.Controllers
             return Ok(new { Message="This request id= " + requestID + " working for you"});
         
         }
-        [HttpGet("throw1")]
+        [HttpGet("GetBYID")]
         public IActionResult Get(int id) {
            
             if (id == 0)
@@ -32,6 +32,13 @@ namespace MiddlewaresDemo.Controllers
             }
         
         
+        }
+
+
+        [HttpGet("GETBYNAME")]
+        public IActionResult Get(string id)
+        {
+            return Ok("HEllo");
         }
 
     }
